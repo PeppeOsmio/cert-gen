@@ -1,0 +1,11 @@
+services:
+  cert-gen-nginx:
+    container_name: cert-gen-nginx
+    build:
+      context: cert-gen
+      dockerfile: Dockerfile
+    env_file:
+      - env_files/cert-gen.env
+    volumes:
+      - ./certs:/output
+    <<: *logging
